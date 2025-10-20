@@ -59,3 +59,11 @@
 (defparameter apply-id-w
   (make-lapp :func apply-f
              :arg (make-lvar :name 'w)))
+
+; ((λx. (λx. x)) y)
+(defparameter shadow-test
+  (make-lapp
+   :func (make-labs :param (make-lvar :name 'x)
+                    :body (make-labs :param (make-lvar :name 'x)
+                                     :body (make-lvar :name 'x)))
+   :arg (make-lvar :name 'y)))

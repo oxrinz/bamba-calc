@@ -31,9 +31,11 @@
       ((replace-abs (param expr replace-with)
                     (cond
                      ((labs-p expr)
-                       (make-labs
-                         :param (labs-param expr)
-                         :body (replace-abs param (labs-body expr) replace-with)))
+                       (if (equal (lvar-name (labs-param expr)) (lvar-name param))
+                        expr
+                        (make-labs
+                          :param (labs-param expr)
+                          :body (replace-abs param (labs-body expr) replace-with))))
 
                      ((lapp-p expr)
                        (make-lapp
