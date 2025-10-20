@@ -10,3 +10,5 @@ todo:
 - lambda lexer
 - church encodings
 - reduction counter / other cost models
+
+i have no idea if this actually works but test cases seems correct
